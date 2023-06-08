@@ -103,8 +103,7 @@ function showResults() {
 function createTweetLink() {
     const text = "私のしゅうぇいクイズの正答数は" + score + "/" + questions.length + "でした！";
     const url = encodeURIComponent(window.location.href);
-    const hashtags = "しゅうぇいクイズ";
 
-    const tweetUrl = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(text) + "&url=" + url + "&hashtags=" + encodeURIComponent(hashtags);
+    const tweetUrl = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(text) + "%0a&url=" + url;
     return tweetUrl;
 }
