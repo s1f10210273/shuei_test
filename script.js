@@ -102,7 +102,7 @@ function showResults() {
 
 function createTweetLink() {
     const text = "私のしゅうぇいクイズの正答数は" + score + "/" + questions.length + "でした！";
-    const url = encodeURIComponent(window.location.href);
+    const url = "https://s1f10210273.github.io/shuei_test/";
 
     const tweetUrl = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(text) + "%0a&url=" + url;
     return tweetUrl;
