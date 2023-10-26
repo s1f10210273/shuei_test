@@ -15,9 +15,9 @@ const questions = [{
         correctAnswer: 2
     },
     {
-        question: "私の好きな食べ物はなんでしょう？",
-        choices: ["牛丼", "ピザ", "醤油", "ラーメン"],
-        correctAnswer: 3
+        question: "私の好きなキャラクターはなんでしょう？",
+        choices: ["カビゴン", "シナモン", "キリト", "クロミ"],
+        correctAnswer: 0
     },
     {
         question: "私の好きなギターはなんでしょう？",
