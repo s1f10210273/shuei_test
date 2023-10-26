@@ -54,7 +54,9 @@ function showQuestion() {
         const choiceButton = document.createElement("button");
         choiceButton.textContent = choice;
         choiceButton.classList.add("btn", "btn-primary", "mx-1");
-        choiceButton.onclick = () => checkAnswer(idx);
+        choiceButton.onclick = () => {
+            checkAnswer(idx);
+        }
         choices.appendChild(choiceButton);
     });
 
@@ -64,20 +66,49 @@ function showQuestion() {
 }
 
 function checkAnswer(answer) {
+    const container = document.createElement("div");
+    container.classList.add("container", "text-center");
+
+    const question = document.createElement("h2");
+    question.textContent = questions[index].question;
+    container.appendChild(question);
+
+    const choices = document.createElement("div");
+    choices.classList.add("mt-3");
+
     // 回答が正しいかチェックする処理
+    const answerDisplay = document.createElement("h1");
     if (answer === questions[index].correctAnswer) {
+        answerDisplay.classList.add("bi", "bi-circle");
         score++;
+    } else {
+        answerDisplay.classList.add("bi", "bi-x");
     }
+    container.appendChild(answerDisplay); // 回答表示を追加
+
 
     index++;
+    const Button = document.createElement("button");
+    Button.classList.add("bi", "bi-arrow-right");
+    Button.classList.add("btn", "btn-primary", "mx-1");
+    container.appendChild(Button); // 次へボタンを追加
 
-    // 問題がまだ残っている場合、次の問題を表示する
-    if (index < questions.length) {
-        showQuestion();
-    } else {
-        // クイズが終了した場合、最終ページで正答数を表示する
-        showResults();
+    document.body.innerHTML = "";
+    document.body.appendChild(container);
+
+    Button.onclick = () => {
+        // 問題がまだ残っている場合、次の問題を表示する
+        if (index < questions.length) {
+            showQuestion();
+        } else {
+            // クイズが終了した場合、最終ページで正答数を表示する
+            showResults();
+        }
     }
+
+
+
+
 }
 
 function showResults() {
